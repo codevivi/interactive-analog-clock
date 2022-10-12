@@ -1,33 +1,13 @@
 import "./style.css";
 import Button from "../Button";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
-//import girl from "../rresources/girl.svg";
 import girl from "../../resources/img/girl.svg";
 import settingsIcon from "../../resources/icons/settings_gear.svg";
 import closeIcon from "../../resources/icons/close.svg";
 import DynamicBg from "../../components/DynamicBg";
-import morning6 from "../../resources/img/clock_bg/morning6h.svg";
-//import morning7 from "../resources/morning7h.svg";
-import morning8 from "../../resources/img/clock_bg/morning8h.svg";
-import morning10 from "../../resources/img/clock_bg/morning10h.svg";
-import morning11 from "../../resources/img/clock_bg/morning11h.svg";
-import morning12 from "../../resources/img/clock_bg/morning12h.svg";
-import day1 from "../../resources/img/clock_bg/day1h.svg";
-import day2 from "../../resources/img/clock_bg/day2h.svg";
-import day6 from "../../resources/img/clock_bg/day6h.svg";
-import evening7 from "../../resources/img/clock_bg/evening7h.svg";
-import evening8 from "../../resources/img/clock_bg/evening8h.svg";
-import evening9 from "../../resources/img/clock_bg/evening9h.svg";
-import night10 from "../../resources/img/clock_bg/night10h.svg";
-import night11 from "../../resources/img/clock_bg/night11h.svg";
-import night12 from "../../resources/img/clock_bg/night12h.svg";
-import night2 from "../../resources/img/clock_bg/night2h.svg";
-import night4 from "../../resources/img/clock_bg/night4h.svg";
-import night5 from "../../resources/img/clock_bg/night5h.svg";
-// console.log(evening7);
+
 const Clock = () => {
-  //const [trueTime, setTrueTime] = useState(true);
   let date = new Date();
   const [everyFiveMinutesOn, setEveryFiveMinutesOn] = useState(false);
   const [allMinutesOn, setAllMinutesOn] = useState(false);
@@ -44,49 +24,6 @@ const Clock = () => {
   const [hDeg, setHdeg] = useState(30 * h + m / 2);
   const [mDeg, setMdeg] = useState(6 * m);
   const [sDeg, setSdeg] = useState(6 * s + 6);
-  // const chooseBackground = useCallback(() => {
-  //   let clockBg;
-  //   let hour = Number(h);
-  //   // console.log(hour);
-  //   if (hour === 0) {
-  //     clockBg = night12;
-  //   } else if (hour >= 1 && hour < 4) {
-  //     clockBg = night2;
-  //   } else if (hour === 4) {
-  //     clockBg = night4;
-  //   } else if (hour === 5) {
-  //     clockBg = night5;
-  //   } else if (hour >= 5 && hour < 7) {
-  //     clockBg = morning6;
-  //   } else if (hour >= 7 && hour <= 8) {
-  //     clockBg = morning8;
-  //   } else if (hour > 8 && hour <= 10) {
-  //     clockBg = morning10;
-  //   } else if (hour > 10 && hour <= 11) {
-  //     clockBg = morning11;
-  //   } else if (hour > 11 && hour < 13) {
-  //     clockBg = morning12;
-  //   } else if (hour >= 13 && hour <= 14) {
-  //     clockBg = day1;
-  //   } else if (hour > 14 && hour <= 16) {
-  //     clockBg = day2;
-  //   } else if (hour > 16 && hour <= 18) {
-  //     clockBg = day6;
-  //   } else if (hour > 18 && hour <= 19) {
-  //     clockBg = evening7;
-  //   } else if (hour > 19 && hour <= 20) {
-  //     clockBg = evening8;
-  //   } else if (hour > 20 && hour < 22) {
-  //     clockBg = evening9;
-  //   } else if (hour >= 22 && hour < 23) {
-  //     clockBg = night10;
-  //   } else if (hour === 23) {
-  //     clockBg = night11;
-  //   }
-  //   return clockBg;
-  // }, [h]);
-
-  // const [bg, setBg] = useState(chooseBackground);
 
   useEffect(() => {
     if (!interactive) {
@@ -99,19 +36,13 @@ const Clock = () => {
         setHdeg(30 * h + m / 2);
         setMdeg(6 * m);
         setSdeg(6 * s + 6);
-        //console.log(hDeg, mDeg, sDeg);
       }, 1000);
       return () => clearInterval(timeIntervalId);
     } else {
       setHdeg(30 * h + m / 2);
       setMdeg(6 * m);
-      //setSdeg(6 * s + 6);
     }
   }, [s, m, h, interactive]);
-
-  // useEffect(() => {
-  //   setBg(chooseBackground);
-  // }, [chooseBackground, h]);
 
   function pad2(n) {
     let str = "" + n;
@@ -168,7 +99,6 @@ const Clock = () => {
       } else {
         add = value - m;
       }
-      // console.log(add);
       let date = new Date(time + add * 60000);
       setTime(date.getTime());
       setM(date.getMinutes());
@@ -213,8 +143,9 @@ const Clock = () => {
       <img className="girl" src={girl} widht="100" alt="" />
       <Button addPosClass="clock__button-open-settings-pos" styling="info" handleClick={openSettings} icon={settingsIcon} large={true} />
 
-      <div dragable="false" className="clock" id="clock" style={{ backgroundImage: `url(${night10})` }}>
-        <img className="dynamic-bg" src={day1} widht="100" alt="" />
+      <div dragable="false" className="clock" id="clock">
+        <DynamicBg dragable="false" h={h}></DynamicBg>
+
         <div dragable="false" className="clock__face">
           {interactive && (
             <ul dragable="false" className="interactive">
@@ -241,8 +172,16 @@ const Clock = () => {
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Elektronis laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {digitalOn && <Button handleClick={() => setDigitalOn(false)} text="Paslėpti" icon={closeIcon}></Button>}
-                {!digitalOn && <Button handleClick={() => setDigitalOn(true)} text="Rodyti" icon={closeIcon}></Button>}
+                {digitalOn && (
+                  <button className="button botton--simple" onClick={() => setDigitalOn(false)}>
+                    Paslėpti
+                  </button>
+                )}
+                {!digitalOn && (
+                  <button className="button botton--simple" onClick={() => setDigitalOn(true)}>
+                    Rodyti
+                  </button>
+                )}
                 {digitalOn && !format12 && (
                   <button className="button button--simple" onClick={() => setFormat12(true)}>
                     Perjunkti į 12 valandų formatą
@@ -266,7 +205,7 @@ const Clock = () => {
                 )}
                 {interactive && (
                   <button onClick={() => setInteractive(false)} className="button button--simple">
-                    Įšjunkti
+                    Išjunkti
                   </button>
                 )}
                 {interactive && !hiddenMinutes && everyFiveMinutesOn && (
