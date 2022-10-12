@@ -74,34 +74,7 @@ body {
   color: var(--blue);
 }
 
-.tooltip {
-  position: relative;
-  /* display: inline-block;
-  border-bottom: 1px dotted black; */
-}
 
-.tooltip .tooltip__text {
-  visibility: hidden;
-  width: 120px;
-  background-color: var(--orange);
-  color: var(--light);
-  text-align: center;
-  border-radius: 6px 6px 6px 0;
-  padding: 0.4em;
-  position: absolute;
-  z-index: 1;
-  bottom: 101%;
-  left: 100%;
-  margin-left: -60px;
-  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.tooltip:hover .tooltip__text {
-  visibility: visible;
-  opacity: 1;
-}
 
 .unselectable {
   user-drag: none;

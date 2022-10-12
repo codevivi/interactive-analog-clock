@@ -22,7 +22,7 @@ const DynamicBg = ({ h }) => {
     let clockBg;
     let hour = Number(h);
     if (hour === 0) {
-      clockBg = night12;
+      clockBg = "night12";
     } else if (hour >= 1 && hour < 4) {
       clockBg = "night2";
     } else if (hour === 4) {

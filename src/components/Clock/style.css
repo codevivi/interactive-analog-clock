@@ -95,7 +95,73 @@
   box-shadow: 1px 1px 2px black;
 }
 
-.digital small {}
+.button {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  justify-content: center;
+  background-color: transparent;
+  box-shadow: -1px 1px 4px black;
+  border: none;
+  width: auto;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background-color 0.2s;
+  border-radius: 5px;
+}
+
+.button__icon {
+  display: block;
+  color: inherit;
+}
+
+.button__text {
+  display: block;
+  width: auto;
+  text-indent: 0.3rem;
+  display: block;
+  margin-right: 0.8rem;
+}
+
+.button--normal {
+  background-color: transparent;
+  color: var(--orange-dark);
+}
+
+.button--info {
+  background-color: var(--blue);
+  color: var(--light);
+}
+
+.button--close {
+  background-color: var(--green);
+  color: var(--light);
+}
+
+.button--large {
+  font-size: 1.2em;
+}
+
+.button--large .button__icon {
+  min-width: 2rem;
+  height: auto;
+}
+
+.button--info:hover,
+.button--info:focus {
+  background-color: var(--orange);
+}
+
+.button--close:hover,
+.button--close:focus {
+  background-color: var(--red);
+}
+
+.button--normal:hover,
+.button--normal:focus {
+  background-color: var(--yellow);
+}
 
 .clock__button-open-settings-pos {
   position: absolute;

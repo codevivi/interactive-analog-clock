@@ -139,16 +139,16 @@ const Clock = () => {
   }
 
   return (
-    <div dragable="false" onMouseUp={() => interactive && setEnableDrag(false)} onMouseDown={() => interactive && setEnableDrag(true)} className="clock-container">
+    <div draggable="false" onMouseUp={() => interactive && setEnableDrag(false)} onMouseDown={() => interactive && setEnableDrag(true)} className="clock-container">
       <img className="girl" src={girl} widht="100" alt="" />
       <Button addPosClass="clock__button-open-settings-pos" styling="info" handleClick={openSettings} icon={settingsIcon} large={true} />
 
-      <div dragable="false" className="clock" id="clock">
-        <DynamicBg dragable="false" h={h}></DynamicBg>
+      <div draggable="false" className="clock" id="clock">
+        <DynamicBg draggable="false" h={h}></DynamicBg>
 
-        <div dragable="false" className="clock__face">
+        <div draggable="false" className="clock__face">
           {interactive && (
-            <ul dragable="false" className="interactive">
+            <ul draggable="false" className="interactive">
               {clockParts}
             </ul>
           )}
@@ -172,62 +172,21 @@ const Clock = () => {
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Elektronis laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {digitalOn && (
-                  <button className="button botton--simple" onClick={() => setDigitalOn(false)}>
-                    Paslėpti
-                  </button>
-                )}
-                {!digitalOn && (
-                  <button className="button botton--simple" onClick={() => setDigitalOn(true)}>
-                    Rodyti
-                  </button>
-                )}
-                {digitalOn && !format12 && (
-                  <button className="button button--simple" onClick={() => setFormat12(true)}>
-                    Perjunkti į 12 valandų formatą
-                  </button>
-                )}
-                {digitalOn && format12 && (
-                  <button className="button button--simple" onClick={() => setFormat12(false)}>
-                    Perjunkti į 24 valandų formatą
-                  </button>
-                )}
+                {digitalOn && <Button large text="Paslėpti" handleClick={() => setDigitalOn(false)}></Button>}
+                {!digitalOn && <Button large text="Rodyti" handleClick={() => setDigitalOn(true)}></Button>}
+                {digitalOn && !format12 && <Button large text="Perjunkti į 12 valandų formatą" handleClick={() => setFormat12(true)}></Button>}
+                {digitalOn && format12 && <Button large text="Perjunkti į 24 valandų formatą" handleClick={() => setFormat12(false)}></Button>}
               </div>
             </div>
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Mokomasis Laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {!interactive && (
-                  <button onClick={() => setInteractive(true)} className="tooltip button button--simple">
-                    Įjunkti
-                    <span className="tooltip__text">Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą.</span>
-                  </button>
-                )}
-                {interactive && (
-                  <button onClick={() => setInteractive(false)} className="button button--simple">
-                    Išjunkti
-                  </button>
-                )}
-                {interactive && !hiddenMinutes && everyFiveMinutesOn && (
-                  <button onClick={showAllMinutes} className="button button--simple">
-                    Rodyti visas minutes
-                  </button>
-                )}
-                {interactive && allMinutesOn && !hiddenMinutes && (
-                  <button onClick={showEveryFiveMinutes} className="button button--simple">
-                    Rodyti kas penkias minutes
-                  </button>
-                )}
-                {interactive && !hiddenMinutes && (
-                  <button onClick={hideMinutes} className="button button--simple">
-                    Paslėpti minutes
-                  </button>
-                )}
-                {interactive && hiddenMinutes && (
-                  <button onClick={showMinutes} className="button button--simple">
-                    Rodyti minutes
-                  </button>
-                )}
+                {!interactive && <Button large text="Įjunkti" tooltip tooltipText="Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą." handleClick={() => setInteractive(true)}></Button>}
+                {interactive && <Button large text="Išjunkti" handleClick={() => setInteractive(false)}></Button>}
+                {interactive && !hiddenMinutes && everyFiveMinutesOn && <Button large text="Rodyti visas minutes" handleClick={showAllMinutes}></Button>}
+                {interactive && allMinutesOn && !hiddenMinutes && <Button large text="Rodyti kas penkias minutes" handleClick={showEveryFiveMinutes}></Button>}
+                {interactive && !hiddenMinutes && <Button large text="Paslėpti minutes" handleClick={hideMinutes}></Button>}
+                {interactive && hiddenMinutes && <Button large text="Rodyti minutes" handleClick={showMinutes}></Button>}
               </div>
             </div>
           </div>

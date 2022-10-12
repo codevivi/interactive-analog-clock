@@ -66,4 +66,32 @@
   background-color: var(--yellow);
 }
 
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--orange);
+  color: var(--light);
+  font-size: 0.9em;
+  text-align: center;
+  border-radius: 6px 6px 6px 0;
+  padding: 0.4em;
+  position: absolute;
+  z-index: 1;
+  bottom: 101%;
+  left: 100%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
 @media all and (min-width: 1500px) {}

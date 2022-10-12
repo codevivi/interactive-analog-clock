@@ -1,14 +1,6 @@
 //import { Link } from "react-router-dom";
 import "./index.css";
-const Button = ({
-  isLink = false,
-  handleClick = null,
-  icon = null,
-  text = "",
-  addPosClass = "",
-  styling = "normal",
-  large = false,
-}) => {
+const Button = ({ isLink = false, handleClick = null, icon = null, text = "", addPosClass = "", styling = "normal", large = false, tooltip = false, tooltipText = "" }) => {
   let buttonText = null;
   let buttonIcon = null;
   if (styling === "normal") {
@@ -24,6 +16,9 @@ const Button = ({
   if (text) {
     buttonText = <small className="button__text">{text}</small>;
   }
+  if (tooltip) {
+    addPosClass += " tooltip";
+  }
   if (icon) {
     buttonIcon = <img className="button__icon" src={icon} alt="ikona" />;
   }
@@ -33,6 +28,7 @@ const Button = ({
         <button onClick={handleClick} className={`button ${addPosClass}`}>
           {buttonIcon}
           {buttonText}
+          {tooltip && <span className="tooltip-text">{tooltipText}</span>}
         </button>
       )}
     </div>
