@@ -47,7 +47,12 @@
   position: absolute;
   background: black;
   border-radius: 10px;
+  box-shadow: 1px 1px 5px white;
   transform-origin: bottom;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .clock__hand--hours {

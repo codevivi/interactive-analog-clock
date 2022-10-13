@@ -111,7 +111,15 @@ const Clock = () => {
     let fives = !(i % 5);
     let deg = i * 6;
     clockParts.push(
-      <li data-deg={deg} data-value={i} onTouchEnd={(e) => enableDrag && setMdeg(e.target.dataset.deg)} onMouseOver={(e) => updateInteractiveTime(e)} key={i.toString()} style={{ transform: `rotate(${deg}deg)` }} className="interactive-part unselectable">
+      <li
+        data-deg={deg}
+        data-value={i}
+        onTouch={(e) => enableDrag && setMdeg(e.target.dataset.deg) && console.log(TouchEvent.targetTouches)}
+        onMouseOver={(e) => updateInteractiveTime(e)}
+        onTouchEnd={(e) => updateInteractiveTime(e)}
+        key={i.toString()}
+        style={{ transform: `rotate(${deg}deg)` }}
+        className="interactive-part unselectable">
         {allMinutesOn && (
           <small
             onMouseOver={(e) => e.stopPropagation()}
@@ -139,10 +147,11 @@ const Clock = () => {
   }
 
   return (
-    <div draggable="false" onMouseUp={() => interactive && setEnableDrag(false)} onMouseDown={() => interactive && setEnableDrag(true)} className="clock-container">
+    <div draggable="false" onMouseUp={() => interactive && setEnableDrag(false)} onMouseDown={() => interactive && setEnableDrag(true)} onTouchEnd={() => interactive && setEnableDrag(false)} onTouchStart={() => interactive && setEnableDrag(true)} className="clock-container">
+      {/* <div draggable="false" onMouseUp={() => interactive && setEnableDrag(false)} className="clock-container"> */}
       <img className="girl" src={girl} widht="100" alt="" />
       <Button addPosClass="clock__button-open-settings-pos" styling="info" handleClick={openSettings} icon={settingsIcon} large={true} />
-
+      {/* settings there to wrap clock */}
       <div draggable="false" className="clock" id="clock">
         <DynamicBg draggable="false" h={h}></DynamicBg>
 
