@@ -1,23 +1,25 @@
 import "./style.css";
 import Button from "../Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import girl from "../../resources/img/girl.svg";
 import settingsIcon from "../../resources/icons/settings_gear.svg";
 import closeIcon from "../../resources/icons/close.svg";
 import DynamicBg from "../../components/DynamicBg";
+import ClockContainer from "../ClockContainer";
 
-const Clock = () => {
+// const Clock = ({ interactive, everyFiveMinutesOn, allMinutesOn, hideMinutes }) => {
+const Clock = ({ everyFiveMinutesOn, allMinutesOn, hiddenMinutes, interactive, digitalOn }) => {
   let date = new Date();
-  const [everyFiveMinutesOn, setEveryFiveMinutesOn] = useState(false);
-  const [allMinutesOn, setAllMinutesOn] = useState(false);
-  const [hiddenMinutes, setHiddenMinutes] = useState(true);
+  // const [everyFiveMinutesOn, setEveryFiveMinutesOn] = useState(false);
+  // const [allMinutesOn, setAllMinutesOn] = useState(false);
+  // const [hiddenMinutes, setHiddenMinutes] = useState(true);
   const [time, setTime] = useState(0);
   const [enableDrag, setEnableDrag] = useState(false);
-  const [interactive, setInteractive] = useState(false);
+  // const [interactive, setInteractive] = useState(false);
   const [format12, setFormat12] = useState(false);
-  const [settingsOn, setSettingsOn] = useState(false);
-  const [digitalOn, setDigitalOn] = useState(true);
+  // const [settingsOn, setSettingsOn] = useState(false);
+  // const [digitalOn, setDigitalOn] = useState(true);
   const [h, setH] = useState(() => date.getHours());
   const [m, setM] = useState(() => date.getMinutes());
   const [s, setS] = useState(() => date.getSeconds());
@@ -61,30 +63,30 @@ const Clock = () => {
     return num;
   }
 
-  function openSettings() {
-    setSettingsOn(true);
-  }
-  function closeSettings() {
-    setSettingsOn(false);
-  }
-  function showEveryFiveMinutes() {
-    setEveryFiveMinutesOn(true);
-    setAllMinutesOn(false);
-  }
-  function showAllMinutes() {
-    setEveryFiveMinutesOn(false);
-    setAllMinutesOn(true);
-  }
-  function hideMinutes() {
-    setEveryFiveMinutesOn(false);
-    setAllMinutesOn(false);
-    setHiddenMinutes(true);
-  }
-  function showMinutes() {
-    setEveryFiveMinutesOn(false);
-    setHiddenMinutes(false);
-    setEveryFiveMinutesOn(true);
-  }
+  // function showSettings() {
+  //   setSettingsOn(true);
+  // }
+  // function hideSettings() {
+  //   setSettingsOn(false);
+  // }
+  // function showEveryFiveMinutes() {
+  //   setEveryFiveMinutesOn(true);
+  //   setAllMinutesOn(false);
+  // }
+  // function showAllMinutes() {
+  //   setEveryFiveMinutesOn(false);
+  //   setAllMinutesOn(true);
+  // }
+  // function hideMinutes() {
+  //   setEveryFiveMinutesOn(false);
+  //   setAllMinutesOn(false);
+  //   setHiddenMinutes(true);
+  // }
+  // function showMinutes() {
+  //   setEveryFiveMinutesOn(false);
+  //   setHiddenMinutes(false);
+  //   setEveryFiveMinutesOn(true);
+  // }
 
   function updateInteractiveTime(e) {
     if (enableDrag) {
@@ -114,7 +116,7 @@ const Clock = () => {
       <li
         data-deg={deg}
         data-value={i}
-        onTouch={(e) => enableDrag && setMdeg(e.target.dataset.deg) && console.log(TouchEvent.targetTouches)}
+        // onTouchStart={(e) => enableDrag && setMdeg(e.target.dataset.deg)}
         onMouseOver={(e) => updateInteractiveTime(e)}
         onTouchEnd={(e) => updateInteractiveTime(e)}
         key={i.toString()}
@@ -145,62 +147,37 @@ const Clock = () => {
       </li>
     );
   }
-
+  const clockRef = useRef();
+  useEffect(() => {
+    function handler(event) {
+      if (!clockRef.current?.contains(event.target)) {
+        setEnableDrag(false);
+      }
+    }
+    window.addEventListener("mouseup", handler);
+    return () => window.removeEventListener("mouseup", handler);
+  }, []);
   return (
-    <div draggable="false" onMouseUp={() => interactive && setEnableDrag(false)} onMouseDown={() => interactive && setEnableDrag(true)} onTouchEnd={() => interactive && setEnableDrag(false)} onTouchStart={() => interactive && setEnableDrag(true)} className="clock-container">
-      {/* <div draggable="false" onMouseUp={() => interactive && setEnableDrag(false)} className="clock-container"> */}
-      <img className="girl" src={girl} widht="100" alt="" />
-      <Button addPosClass="clock__button-open-settings-pos" styling="info" handleClick={openSettings} icon={settingsIcon} large={true} />
-      {/* settings there to wrap clock */}
-      <div draggable="false" className="clock" id="clock">
-        <DynamicBg draggable="false" h={h}></DynamicBg>
+    <div draggable="false" ref={clockRef} className="clock" onMouseUp={() => interactive && setEnableDrag(false)} onMouseDown={() => interactive && setEnableDrag(true)} onTouchEnd={() => interactive && setEnableDrag(false)} onTouchStart={() => interactive && setEnableDrag(true)} id="clock">
+      <DynamicBg draggable="false" h={h}></DynamicBg>
 
-        <div draggable="false" className="clock__face">
-          {interactive && (
-            <ul draggable="false" className="interactive">
-              {clockParts}
-            </ul>
-          )}
-          <div style={{ transform: `rotate(${hDeg}deg)` }} className="clock__hand--hours clock__hand"></div>
-          <div style={{ transform: `rotate(${mDeg}deg)` }} className="clock__hand--minutes clock__hand"></div>
-          {!interactive && <div style={{ transform: `rotate(${sDeg}deg)` }} className="clock__hand--seconds clock__hand"></div>}
-          {digitalOn && (
-            <p className="digital unselectable" onMouseOver={(e) => e.stopPropagation()}>
-              <small className="digital__hours-display">{pad2(formatDigitalHour(h))}:</small>
-              <small className="digital__minutes-display">{pad2(m)}</small>
-              {!interactive && <small className="digital__senonds-display">:{pad2(s)}</small>}
-            </p>
-          )}
-        </div>
+      <div draggable="false" className="clock__face">
+        {interactive && (
+          <ul draggable="false" className="interactive">
+            {clockParts}
+          </ul>
+        )}
+        <div style={{ transform: `rotate(${hDeg}deg)` }} className="clock__hand--hours clock__hand"></div>
+        <div style={{ transform: `rotate(${mDeg}deg)` }} className="clock__hand--minutes clock__hand"></div>
+        {!interactive && <div style={{ transform: `rotate(${sDeg}deg)` }} className="clock__hand--seconds clock__hand"></div>}
+        {digitalOn && (
+          <p className="digital unselectable" onMouseOver={(e) => e.stopPropagation()}>
+            <small className="digital__hours-display">{pad2(formatDigitalHour(h))}:</small>
+            <small className="digital__minutes-display">{pad2(m)}</small>
+            {!interactive && <small className="digital__senonds-display">:{pad2(s)}</small>}
+          </p>
+        )}
       </div>
-      {settingsOn && (
-        <div className="clock-settings">
-          <div className="clock-settings__inner">
-            <Button addPosClass="clock-settings__button-close-pos" styling="close" icon={closeIcon} handleClick={closeSettings} />
-            <h1 className="clock-settings__title">Nustatymai</h1>
-            <div className="clock-settings__section">
-              <h2 className="clock-settings__title-h2">Elektronis laikrodukas</h2>
-              <div className="clock-settings__buttons-container">
-                {digitalOn && <Button large text="Paslėpti" handleClick={() => setDigitalOn(false)}></Button>}
-                {!digitalOn && <Button large text="Rodyti" handleClick={() => setDigitalOn(true)}></Button>}
-                {digitalOn && !format12 && <Button large text="Perjunkti į 12 valandų formatą" handleClick={() => setFormat12(true)}></Button>}
-                {digitalOn && format12 && <Button large text="Perjunkti į 24 valandų formatą" handleClick={() => setFormat12(false)}></Button>}
-              </div>
-            </div>
-            <div className="clock-settings__section">
-              <h2 className="clock-settings__title-h2">Mokomasis Laikrodukas</h2>
-              <div className="clock-settings__buttons-container">
-                {!interactive && <Button large text="Įjunkti" tooltip tooltipText="Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą." handleClick={() => setInteractive(true)}></Button>}
-                {interactive && <Button large text="Išjunkti" handleClick={() => setInteractive(false)}></Button>}
-                {interactive && !hiddenMinutes && everyFiveMinutesOn && <Button large text="Rodyti visas minutes" handleClick={showAllMinutes}></Button>}
-                {interactive && allMinutesOn && !hiddenMinutes && <Button large text="Rodyti kas penkias minutes" handleClick={showEveryFiveMinutes}></Button>}
-                {interactive && !hiddenMinutes && <Button large text="Paslėpti minutes" handleClick={hideMinutes}></Button>}
-                {interactive && hiddenMinutes && <Button large text="Rodyti minutes" handleClick={showMinutes}></Button>}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
