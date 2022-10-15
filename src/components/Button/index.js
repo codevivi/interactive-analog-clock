@@ -3,21 +3,22 @@ import "./index.css";
 const Button = ({ isLink = false, handleClick = null, icon = null, text = "", addPosClass = "", styling = "normal", large = false, tooltip = false, tooltipText = "" }) => {
   let buttonText = null;
   let buttonIcon = null;
+  let allClassNames = addPosClass;
   if (styling === "normal") {
-    addPosClass += " button--normal";
+    allClassNames += " button--normal";
   } else if (styling === "info") {
-    addPosClass += " button--info";
+    allClassNames += " button--info";
   } else if (styling === "close") {
-    addPosClass += " button--close";
+    allClassNames += " button--close";
   }
   if (large) {
-    addPosClass += " button--large";
+    allClassNames += " button--large";
   }
   if (text) {
     buttonText = <small className="button__text">{text}</small>;
   }
   if (tooltip) {
-    addPosClass += " tooltip";
+    allClassNames += " tooltip";
   }
   if (icon) {
     buttonIcon = <img className="button__icon" src={icon} alt="ikona" />;
@@ -25,7 +26,7 @@ const Button = ({ isLink = false, handleClick = null, icon = null, text = "", ad
   return (
     <div>
       {!isLink && (
-        <button onClick={handleClick} className={`button ${addPosClass}`}>
+        <button onClick={handleClick} className={`button ${allClassNames}`}>
           {buttonIcon}
           {buttonText}
           {tooltip && <span className="tooltip-text">{tooltipText}</span>}

@@ -1,71 +1,68 @@
 import "./style.css";
 import Button from "../Button";
-import Clock from "../Clock";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import settingsIcon from "../../resources/icons/settings_gear.svg";
 import closeIcon from "../../resources/icons/close.svg";
 
-const Settings = () => {
-  const [digitalOn, setDigitalOn] = useState(true);
-  const [everyFiveMinutesOn, setEveryFiveMinutesOn] = useState(false);
-  const [allMinutesOn, setAllMinutesOn] = useState(false);
-  const [hiddenMinutes, setHiddenMinutes] = useState(true);
-  const [interactive, setInteractive] = useState(false);
-  const [format12, setFormat12] = useState(false);
-  const [settingsOn, setSettingsOn] = useState(false);
+const Settings = ({ children }) => {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isInteractive, setIsInteractive] = useState(false);
+  const [isDigitalVisible, setIsDigitalVisible] = useState(true);
+  const [gapForMinutesAroundFace, setGapForMinutesAroundFace] = useState(1); //1 or 5 or 10 only
+  const [isMinutesAroundFace, setIsMinutesAroundFace] = useState(false);
+  const [isHourFormat12, setIsHourFormat12] = useState(false);
 
-  function showEveryFiveMinutes() {
-    setEveryFiveMinutesOn(true);
-    setAllMinutesOn(false);
-  }
-  function showAllMinutes() {
-    setEveryFiveMinutesOn(false);
-    setAllMinutesOn(true);
-  }
-  function hideMinutes() {
-    setEveryFiveMinutesOn(false);
-    setAllMinutesOn(false);
-    setHiddenMinutes(true);
-  }
-  function showMinutes() {
-    setEveryFiveMinutesOn(false);
-    setHiddenMinutes(false);
-    setEveryFiveMinutesOn(true);
-  }
+  const propsToClock = {
+    isInteractive: isInteractive,
+    isDigitalVisible: isDigitalVisible,
+    isMinutesAroundFace: isMinutesAroundFace,
+    gapForMinutesAroundFace: gapForMinutesAroundFace,
+    isHourFormat12: isHourFormat12,
+  };
 
   return (
     <div className="surround">
-      {!settingsOn && <Button addPosClass="clock-settings__button-open-pos" styling="close" icon={closeIcon} handleClick={() => setSettingsOn(true)} />}
-      {settingsOn && (
+      {!isSettingsOpen && <Button addPosClass="open-settings-button-position" styling="info" icon={settingsIcon} handleClick={() => setIsSettingsOpen(true)} />}
+      {isSettingsOpen && (
         <div className="clock-settings">
           <div className="clock-settings__inner">
-            <Button addPosClass="clock-settings__button-close-pos" styling="close" icon={closeIcon} handleClick={() => setSettingsOn(false)} />
+            <Button addPosClass="close-settings-button-position" styling="close" icon={closeIcon} handleClick={() => setIsSettingsOpen(false)} />
             <h1 className="clock-settings__title">Nustatymai</h1>
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Elektronis laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {digitalOn && <Button large text="Paslėpti" handleClick={() => setDigitalOn(false)}></Button>}
-                {!digitalOn && <Button large text="Rodyti" handleClick={() => setDigitalOn(true)}></Button>}
-                {digitalOn && !format12 && <Button large text="Perjunkti į 12 valandų formatą" handleClick={() => setFormat12(true)}></Button>}
-                {digitalOn && format12 && <Button large text="Perjunkti į 24 valandų formatą" handleClick={() => setFormat12(false)}></Button>}
+                {isDigitalVisible && <Button large text="Paslėpti" handleClick={() => setIsDigitalVisible(false)}></Button>}
+                {!isDigitalVisible && <Button large text="Rodyti" handleClick={() => setIsDigitalVisible(true)}></Button>}
+                {isDigitalVisible && !isHourFormat12 && <Button large text="Perjunkti į 12 valandų formatą" handleClick={() => setIsHourFormat12(true)}></Button>}
+                {isDigitalVisible && isHourFormat12 && <Button large text="Perjunkti į 24 valandų formatą" handleClick={() => setIsHourFormat12(false)}></Button>}
               </div>
             </div>
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Mokomasis Laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {!interactive && <Button large text="Įjunkti" tooltip tooltipText="Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą." handleClick={() => setInteractive(true)}></Button>}
-                {interactive && <Button large text="Išjunkti" handleClick={() => setInteractive(false)}></Button>}
-                {interactive && !hiddenMinutes && everyFiveMinutesOn && <Button large text="Rodyti visas minutes" handleClick={showAllMinutes}></Button>}
-                {interactive && allMinutesOn && !hiddenMinutes && <Button large text="Rodyti kas penkias minutes" handleClick={showEveryFiveMinutes}></Button>}
-                {interactive && !hiddenMinutes && <Button large text="Paslėpti minutes" handleClick={hideMinutes}></Button>}
-                {interactive && hiddenMinutes && <Button large text="Rodyti minutes" handleClick={showMinutes}></Button>}
+                {!isInteractive && <Button large text="Įjunkti" tooltip tooltipText="Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą." handleClick={() => setIsInteractive(true)}></Button>}
+                {isInteractive && <Button large text="Išjunkti" handleClick={() => setIsInteractive(false)}></Button>}
+              </div>
+            </div>
+            <div className="clock-settings__section">
+              <h2 className="clock-settings__title-h2">Minučių padalų numeravimas</h2>
+              <div className="clock-settings__buttons-container">
+                {!isMinutesAroundFace && <Button large text="Rodyti minutes" handleClick={() => setIsMinutesAroundFace(true)}></Button>}
+                {isMinutesAroundFace && <Button large text="Paslėpti minutes" handleClick={() => setIsMinutesAroundFace(false)}></Button>}
+
+                {isMinutesAroundFace && <p className="clock-settings__text">Pasirinkite tarpus tarp rodomų minučių:</p>}
+                <div className="clock-settings__gap-buttons">
+                  {isMinutesAroundFace && <Button text="1" handleClick={() => setGapForMinutesAroundFace(1)}></Button>}
+                  {isMinutesAroundFace && <Button text="5" handleClick={() => setGapForMinutesAroundFace(5)}></Button>}
+                  {isMinutesAroundFace && <Button text="10" handleClick={() => setGapForMinutesAroundFace(10)}></Button>}
+                  {isMinutesAroundFace && <Button text="15" handleClick={() => setGapForMinutesAroundFace(15)}></Button>}
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
-
-      <Clock interactive={interactive} setAllMinutesOn={allMinutesOn} setEveryFiveMinutesOn={everyFiveMinutesOn} hiddenMinutes={hiddenMinutes} digitalOn={digitalOn} />
+      {children(propsToClock)}
     </div>
   );
 };

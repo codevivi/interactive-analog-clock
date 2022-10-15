@@ -1,5 +1,4 @@
 import "./style.css";
-
 import girl from "../../resources/img/girl.svg";
 const ClockContainer = ({ children }) => {
   return (

@@ -1,0 +1,40 @@
+.clock-container {
+    width: 98%;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: var(--light);
+    position: relative;
+    box-shadow: 3px 3px 10px black;
+    color: var(--orange-dark);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.girl {
+    position: absolute;
+    bottom: 0%;
+    right: 0.1vw;
+    width: 15vw;
+}
+
+@media all and (min-width: 500px) {}
+
+@media all and (min-width: 800px) {
+    .clock-container {
+        width: 94%;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .clock-container {
+        width: 90%;
+    }
+}
+
+@media all and (min-width: 1500px) {
+    .clock-container {
+        width: 80%;
+    }
+}

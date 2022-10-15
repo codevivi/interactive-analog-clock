@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       {!isMobile && <ParticlesBg type="circle" bg={true} />}
       <ClockContainer>
-        <Settings></Settings>
+        <Settings>{(props) => <Clock {...props}></Clock>}</Settings>
       </ClockContainer>
     </div>
   );

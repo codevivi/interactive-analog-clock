@@ -1,5 +1,5 @@
 .button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   font-family: inherit;
   justify-content: center;
@@ -72,7 +72,7 @@
 
 .tooltip .tooltip-text {
   visibility: hidden;
-  width: 120px;
+  width: 100%;
   background-color: var(--orange);
   color: var(--light);
   font-size: 0.9em;
@@ -82,8 +82,7 @@
   position: absolute;
   z-index: 1;
   bottom: 101%;
-  left: 100%;
-  margin-left: -60px;
+  left: 0;
   opacity: 0;
   transition: opacity 0.5s;
 }

@@ -1,16 +1,16 @@
 .surround {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
+    width: 100%;
+    height: 100%;
+    /* position: fixed; */
 }
 
-.clock__button-open-settings-pos {
-    position: fixed;
+.open-settings-button-position {
+    position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
 }
 
-.clock-settings__button-close-pos {
+.close-settings-button-position {
     position: absolute;
     top: 0;
     right: 0;
@@ -22,17 +22,17 @@
     height: 100%;
   } */
 .clock-settings {
-    width: 25%;
+    width: 100%;
     min-width: 250px;
     height: auto;
-    left: 0;
+    right: 0;
     top: 0;
     text-align: center;
     margin: auto;
     position: fixed;
     display: flex;
     flex-direction: column;
-    z-index: 10;
+    z-index: 100;
     background-color: var(--orange);
 }
 
@@ -41,6 +41,24 @@
 
     padding: 0.1em;
     color: var(--light);
+}
+
+.clock-settings__gap-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+.clock-settings__text {
+    color: black;
+    display: block;
+    padding: 1em 0 0.5em 0;
+}
+
+.gap-button-pos {
+    margin-right: 0.5em;
 }
 
 .clock-settings__title {
@@ -71,4 +89,32 @@
     padding: 2em;
     background-color: var(--light);
     margin: 1em;
+}
+
+
+@media all and (min-width: 500px) {
+    .clock-settings {
+        width: 60%;
+    }
+}
+
+@media all and (min-width: 700px) {
+    .clock-settings {
+        width: 40%;
+    }
+
+}
+
+@media all and (min-width: 1000px) {
+
+    .clock-settings {
+        width: 30%;
+    }
+}
+
+@media all and (min-width: 1500px) {
+
+    .clock-settings {
+        width: 25%;
+    }
 }
