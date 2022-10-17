@@ -11,6 +11,7 @@ const Settings = ({ children }) => {
   const [gapForMinutesAroundFace, setGapForMinutesAroundFace] = useState(1); //1 or 5 or 10 only
   const [isMinutesAroundFace, setIsMinutesAroundFace] = useState(false);
   const [isHourFormat12, setIsHourFormat12] = useState(false);
+  const [isGuessingMode, setIsGuessingMode] = useState(false);
 
   const propsToClock = {
     isInteractive: isInteractive,
@@ -18,6 +19,7 @@ const Settings = ({ children }) => {
     isMinutesAroundFace: isMinutesAroundFace,
     gapForMinutesAroundFace: gapForMinutesAroundFace,
     isHourFormat12: isHourFormat12,
+    isGuessingMode: isGuessingMode,
   };
 
   return (
@@ -57,6 +59,13 @@ const Settings = ({ children }) => {
                   {isMinutesAroundFace && <Button text="10" handleClick={() => setGapForMinutesAroundFace(10)}></Button>}
                   {isMinutesAroundFace && <Button text="15" handleClick={() => setGapForMinutesAroundFace(15)}></Button>}
                 </div>
+              </div>
+            </div>
+            <div className="clock-settings__section">
+              <h2 className="clock-settings__title-h2">Pasakyk kiek valandų žaidimukas</h2>
+              <div className="clock-settings__buttons-container">
+                {!isGuessingMode && <Button large text="Įjunkti" handleClick={() => setIsGuessingMode(true)}></Button>}
+                {isGuessingMode && <Button large text="Laikas" handleClick={() => setIsGuessingMode(false) && setIsInteractive(false)}></Button>}
               </div>
             </div>
           </div>

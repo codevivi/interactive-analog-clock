@@ -1,15 +1,17 @@
 .dynamic-bg {
     position: absolute;
-
     width: 100%;
     height: 100%;
     border-radius: 50%;
-
     top: 0;
+    background-color: darkblue;
     left: 0;
     bottom: 0;
     right: 0;
-
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .dynamic-bg__img {
@@ -25,11 +27,11 @@
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    transition: opacity 1s linear;
-    -webkit-transition: opacity 1s linear;
-    -moz-transition: opacity 1s linear;
-    -ms-transition: opacity 1s linear;
-    -o-transition: opacity 1s linear;
+    transition: opacity 1s ease-out;
+    -webkit-transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -ms-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
     opacity: 0;
 }
 

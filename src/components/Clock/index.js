@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 
 import DynamicBg from "../../components/DynamicBg";
 
-const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, isDigitalVisible, isHourFormat12 }) => {
+const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, isDigitalVisible, isHourFormat12, isGuessingMode }) => {
   let date = new Date();
   const [time, setTime] = useState(0);
   const [enableDrag, setEnableDrag] = useState(false);
@@ -13,6 +13,7 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
   const [hDeg, setHdeg] = useState(30 * h + m / 2);
   const [mDeg, setMdeg] = useState(6 * m);
   const [sDeg, setSdeg] = useState(6 * s + 6);
+  const [touchedEl, setTouchedEl] = useState(null);
 
   useEffect(() => {
     if (!isInteractive) {
@@ -69,13 +70,12 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
       setH(date.getHours());
     }
   }
-
   const clockParts = [];
   for (let i = 0; i < 60; i++) {
     let gap = !(i % gapForMinutesAroundFace);
     let deg = i * 6;
     clockParts.push(
-      <li data-deg={deg} data-value={i} onMouseOver={(e) => updateInteractiveTime(e)} onTouchEnd={(e) => updateInteractiveTime(e)} key={i.toString()} style={{ transform: `rotate(${deg}deg)` }} className="interactive-part unselectable">
+      <li data-deg={deg} data-value={i} onMouseOver={(e) => updateInteractiveTime(e)} style={{ transform: `rotate(${deg}deg)` }} className="interactive-part unselectable">
         {isMinutesAroundFace && gap && (
           <small
             onMouseOver={(e) => e.stopPropagation()}
@@ -105,12 +105,22 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
     <div draggable="false" ref={clockRef} className="clock" onMouseUp={() => isInteractive && setEnableDrag(false)} onMouseDown={() => isInteractive && setEnableDrag(true)} onTouchEnd={() => isInteractive && setEnableDrag(false)} onTouchStart={() => isInteractive && setEnableDrag(true)} id="clock">
       <DynamicBg draggable="false" h={h}></DynamicBg>
 
-      <div draggable="false" className="clock__face">
-        {isInteractive && (
-          <ul draggable="false" className="interactive">
-            {clockParts}
-          </ul>
-        )}
+      <div
+        onTouchMove={(e) => {
+          if (isInteractive) {
+            let x = e.touches[0].pageX;
+            let y = e.touches[0].pageY;
+            let el = document.elementFromPoint(x, y);
+            if (touchedEl !== el && el.dataset.value) {
+              setTouchedEl(el);
+              let fakeE = { target: el }; // to use same function 'updateInteractiveTime'
+              console.log(el);
+              updateInteractiveTime(fakeE);
+            }
+          }
+        }}
+        draggable="false"
+        className="clock__face">
         <ul draggable="false" className="interactive">
           {clockParts}
         </ul>
