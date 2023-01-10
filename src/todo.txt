@@ -1,1 +1,0 @@
-check react-touch package, maby possible to make touch 

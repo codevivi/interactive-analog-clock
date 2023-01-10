@@ -63,14 +63,18 @@ const DynamicBg = ({ h }) => {
   useEffect(() => {
     setBg(chooseBackground);
   }, [chooseBackground, h]);
-  let underBgColor = "";
-  if (h > 19 || h > 7) {
-    underBgColor = `black`;
-  } else {
-    underBgColor = `white`;
-  }
+  const underBackgroundColor = (h) => {
+    let underBgColor = "";
+    if (h > 19 || h > 7) {
+      underBgColor = `black`;
+    } else {
+      underBgColor = `white`;
+    }
+    return underBgColor;
+  };
+
   return (
-    <div className="dynamic-bg" style={{ backgroundColor: underBgColor }}>
+    <div className="dynamic-bg" style={{ backgroundColor: underBackgroundColor(h) }}>
       <img className={`dynamic-bg__img ${bg === "morning6" ? "visible" : ""}`} src={morning6} widht="100" alt="" />
       <img className={`dynamic-bg__img ${bg === "morning8" ? "visible" : ""}`} src={morning8} widht="100" alt="" />
       <img className={`dynamic-bg__img ${bg === "morning10" ? "visible" : ""}`} src={morning10} widht="100" alt="" />

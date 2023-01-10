@@ -1,6 +1,17 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Interactive analog clock.
+Made with react.
+## Functionality
+* Shows current time and updates background based on time;
+* Show, hide digital clock, change hours format;
+* Toggle interactive mode and drag minutes handle to change time;
+* Change minutes digits visibility;
+* Works on mobile.
+
+
+
+Interactive clock made with react. Can be used to teach kids recognize time.
+## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

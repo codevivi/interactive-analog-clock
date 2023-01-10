@@ -2,8 +2,10 @@ import "./style.css";
 import { useState, useEffect, useRef } from "react";
 
 import DynamicBg from "../../components/DynamicBg";
+import DigitalClock from "../DigitalClock";
+import Button from "../Button";
 
-const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, isDigitalVisible, isHourFormat12, isGuessingMode }) => {
+const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, isDigitalVisible, isHourFormat12 }) => {
   let date = new Date();
   const [time, setTime] = useState(0);
   const [enableDrag, setEnableDrag] = useState(false);
@@ -34,23 +36,6 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
     }
   }, [s, m, h, isInteractive]);
 
-  function pad2(n) {
-    let str = "" + n;
-    if (str.length < 2) {
-      str = "0" + str;
-    }
-    return str;
-  }
-
-  function formatDigitalHour(num) {
-    if (isHourFormat12) {
-      if (num > 12) {
-        num = num - 12;
-      }
-    }
-    return num;
-  }
-
   function updateInteractiveTime(e) {
     if (enableDrag) {
       let add;
@@ -70,6 +55,7 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
       setH(date.getHours());
     }
   }
+
   const clockParts = [];
   for (let i = 0; i < 60; i++) {
     let gap = !(i % gapForMinutesAroundFace);
@@ -127,13 +113,7 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
         <div style={{ transform: `rotate(${hDeg}deg)` }} className="clock__hand--hours clock__hand"></div>
         <div style={{ transform: `rotate(${mDeg}deg)` }} className="clock__hand--minutes clock__hand"></div>
         {!isInteractive && <div style={{ transform: `rotate(${sDeg}deg)` }} className="clock__hand--seconds clock__hand"></div>}
-        {isDigitalVisible && (
-          <p className="digital unselectable" onMouseOver={(e) => e.stopPropagation()}>
-            <small className="digital__hours-display">{pad2(formatDigitalHour(h))}:</small>
-            <small className="digital__minutes-display">{pad2(m)}</small>
-            {!isInteractive && <small className="digital__seconds-display">:{pad2(s)}</small>}
-          </p>
-        )}
+        {isDigitalVisible && <DigitalClock h={h} m={m} s={!isInteractive ? s : null} isHourFormat12={isHourFormat12} />}
       </div>
     </div>
   );
