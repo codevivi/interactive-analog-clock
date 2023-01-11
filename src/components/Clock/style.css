@@ -111,10 +111,9 @@
   background-color: red;
 }
 
-.clock__digital-position {
+.digital {
   position: absolute;
-  top: 0;
-  bottom: 6em;
+  top: 50%;
   left: 0;
   right: 0;
 

@@ -61,7 +61,7 @@ const Clock = ({ gapForMinutesAroundFace, isMinutesAroundFace, isInteractive, is
     let gap = !(i % gapForMinutesAroundFace);
     let deg = i * 6;
     clockParts.push(
-      <li data-deg={deg} data-value={i} onMouseOver={(e) => updateInteractiveTime(e)} style={{ transform: `rotate(${deg}deg)` }} className="interactive-part unselectable">
+      <li data-deg={deg} data-value={i} key={i} onMouseOver={(e) => updateInteractiveTime(e)} style={{ transform: `rotate(${deg}deg)` }} className="interactive-part unselectable">
         {isMinutesAroundFace && gap && (
           <small
             onMouseOver={(e) => e.stopPropagation()}
