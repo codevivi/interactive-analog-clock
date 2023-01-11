@@ -37,6 +37,7 @@ make sure you are in directory where build folder is and run:
 ```bash
 serve -s build 
 ```
+## [Bugs tracking file](BUGS_AND_TODOS.md)
 <br>
 <br>
 <br>
