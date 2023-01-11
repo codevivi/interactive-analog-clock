@@ -1,5 +1,9 @@
 
 # Interactive analog clock.
+
+Interactive analog clock made with react. Can be used to teach kids recognize time.
+<br>
+Settings currently in ***Lithuanian*** language only.
 Made with react.
 ## Functionality
 * Shows current time and updates background based on time;
@@ -8,11 +12,36 @@ Made with react.
 * Change minutes digits visibility;
 * Works on mobile.
 
+## Usage
+Must have node and npm installed, go to directory where package.json file is and run:
+```bash
+npm install
+```
+then to view on development server:
+```bash
+npm start
+```
+to build for production run:
+```bash
+npm run build
+```
+it will create build directory with static files, you can view application by serving files with static server
+to install static server globally on your computer run:
 
+```bash
+npm install -g serve 
+```
+then you can view application with static server; 
+make sure you are in directory where build folder is and run:
 
-Interactive clock made with react. Can be used to teach kids recognize time.
-## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```bash
+serve -s build 
+```
+<br>
+<br>
+<br>
 
+## Further default README from create-react-app: 
 ## Available Scripts
 
 In the project directory, you can run:
