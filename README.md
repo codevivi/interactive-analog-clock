@@ -5,6 +5,9 @@ Interactive analog clock made with react. Can be used to teach kids recognize ti
 <br>
 Settings currently in ***Lithuanian*** language only.
 Made with react.
+<br>
+![alt app screenshot](./src/resources/app_screenshot.png)
+<br>
 ## Functionality
 * Shows current time and updates background based on time;
 * Show, hide digital clock, change hours format;
