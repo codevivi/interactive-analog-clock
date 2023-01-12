@@ -6,6 +6,7 @@ Interactive analog clock made with react. Can be used to teach kids recognize ti
 Settings currently in ***Lithuanian*** language only.
 Made with react.
 <br>
+[Check it live](https://codevivi.github.io/interaktyvus-laikrodukas/)
 ![alt app screenshot](./src/resources/app_screenshot.png)
 <br>
 ## Functionality
