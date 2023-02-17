@@ -1,17 +1,18 @@
-# Interactive analog clock.
+# 🪧 Interactive analog clock
+
+![alt app screenshot](./src/resources/app_screenshot.png)
+
+## 📋 About
 
 Interactive analog clock made with react. Can be used to teach kids recognize time.
 
 React learning project.
 
-Settings currently in **_Lithuanian_** language only.
-
 🌐 **Site published at**: [https://codevivi.github.io/interaktyvus-laikrodukas/](https://codevivi.github.io/interaktyvus-laikrodukas/)
 
-![alt app screenshot](./src/resources/app_screenshot.png)
-<br>
+📈 **Status**: Developed to usable state. Slow future updates possible.
 
-## Functionality
+🚀 **Functionality/Features:**
 
 - Shows current time and updates background based on time;
 - Show, hide digital clock, change hours format;
@@ -19,9 +20,13 @@ Settings currently in **_Lithuanian_** language only.
 - Change minutes digits visibility;
 - Works on mobile.
 
-## Usage
+Settings currently in **_Lithuanian_** language only.
 
-Must have node and npm installed, go to directory where package.json file is and run:
+[Link to ⚒️ to-dos and 🐛bugs tracking file](BUGS-AND-TODOS.md)
+
+## ⚙️ Usage
+
+Must have **node and npm installed**, go to directory where package.json file is and run:
 
 ```bash
 npm install
@@ -52,12 +57,6 @@ make sure you are in directory where build folder is and run:
 ```bash
 serve -s build
 ```
-
-[Link to todos and bugs tracking file](BUGS-AND-TODOS.md)
-
-<br>
-<br>
-<br>
 
 ## Further default README from create-react-app:
 
