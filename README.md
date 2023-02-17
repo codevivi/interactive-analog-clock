@@ -8,7 +8,7 @@ Interactive analog clock made with react. Can be used to teach kids recognize ti
 
 React learning project.
 
-🌐 **Site published at**: [https://codevivi.github.io/interaktyvus-laikrodukas/](https://codevivi.github.io/interaktyvus-laikrodukas/)
+🌐 **Site published at**: [https://codevivi.github.io/interactive-analog-clock](https://codevivi.github.io/interactive-analog-clock)
 
 📈 **Status**: Developed to usable state. Slow future updates possible.
 
