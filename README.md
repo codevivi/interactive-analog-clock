@@ -1,52 +1,66 @@
-
 # Interactive analog clock.
 
 Interactive analog clock made with react. Can be used to teach kids recognize time.
-<br>
-Settings currently in ***Lithuanian*** language only.
-Made with react.
-<br>
-[Check it live](https://codevivi.github.io/interaktyvus-laikrodukas/)
+
+React learning project.
+
+Settings currently in **_Lithuanian_** language only.
+
+🌐 **Site published at**: [https://codevivi.github.io/interaktyvus-laikrodukas/](https://codevivi.github.io/interaktyvus-laikrodukas/)
+
 ![alt app screenshot](./src/resources/app_screenshot.png)
 <br>
+
 ## Functionality
-* Shows current time and updates background based on time;
-* Show, hide digital clock, change hours format;
-* Toggle interactive mode and drag minutes handle to change time;
-* Change minutes digits visibility;
-* Works on mobile.
+
+- Shows current time and updates background based on time;
+- Show, hide digital clock, change hours format;
+- Toggle interactive mode and drag minutes handle to change time;
+- Change minutes digits visibility;
+- Works on mobile.
 
 ## Usage
+
 Must have node and npm installed, go to directory where package.json file is and run:
+
 ```bash
 npm install
 ```
+
 then to view on development server:
+
 ```bash
 npm start
 ```
+
 to build for production run:
+
 ```bash
 npm run build
 ```
+
 it will create build directory with static files, you can view application by serving files with static server
 to install static server globally on your computer run:
 
 ```bash
-npm install -g serve 
+npm install -g serve
 ```
-then you can view application with static server; 
+
+then you can view application with static server;
 make sure you are in directory where build folder is and run:
 
 ```bash
-serve -s build 
+serve -s build
 ```
-## [Bugs tracking file](BUGS_AND_TODOS.md)
+
+[Link to todos and bugs tracking file](BUGS-AND-TODOS.md)
+
 <br>
 <br>
 <br>
 
-## Further default README from create-react-app: 
+## Further default README from create-react-app:
+
 ## Available Scripts
 
 In the project directory, you can run:
