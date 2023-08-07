@@ -2,7 +2,6 @@
   "name": "interactive-analog-clock",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://codevivi.github.io/interactive-analog-clock",
   "dependencies": {
     "gh-pages": "^5.0.0",
     "particles-bg": "^2.5.5",
@@ -17,6 +16,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "preview": "serve -s build",
     "live": "nodemon index.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
