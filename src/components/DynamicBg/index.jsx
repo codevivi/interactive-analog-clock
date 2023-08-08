@@ -1,22 +1,22 @@
 import "./style.css";
 import { useMemo, useContext } from "react";
-import morning6 from "../../resources/img/clock_bg/morning6h.svg";
-import morning8 from "../../resources/img/clock_bg/morning8h.svg";
-import morning10 from "../../resources/img/clock_bg/morning10h.svg";
-import morning11 from "../../resources/img/clock_bg/morning11h.svg";
-import morning12 from "../../resources/img/clock_bg/morning12h.svg";
-import day1 from "../../resources/img/clock_bg/day1h.svg";
-import day2 from "../../resources/img/clock_bg/day2h.svg";
-import day6 from "../../resources/img/clock_bg/day6h.svg";
-import evening7 from "../../resources/img/clock_bg/evening7h.svg";
-import evening8 from "../../resources/img/clock_bg/evening8h.svg";
-import evening9 from "../../resources/img/clock_bg/evening9h.svg";
-import night10 from "../../resources/img/clock_bg/night10h.svg";
-import night11 from "../../resources/img/clock_bg/night11h.svg";
-import night12 from "../../resources/img/clock_bg/night12h.svg";
-import night2 from "../../resources/img/clock_bg/night2h.svg";
-import night4 from "../../resources/img/clock_bg/night4h.svg";
-import night5 from "../../resources/img/clock_bg/night5h.svg";
+import h6 from "../../resources/img/clock_bg/h6.svg";
+import h7 from "../../resources/img/clock_bg/h7.svg";
+import h9 from "../../resources/img/clock_bg/h9.svg";
+import h11 from "../../resources/img/clock_bg/h11.svg";
+import h12 from "../../resources/img/clock_bg/h12.svg";
+import h13 from "../../resources/img/clock_bg/h13.svg";
+import h15 from "../../resources/img/clock_bg/h15.svg";
+import h17 from "../../resources/img/clock_bg/h17.svg";
+import h19 from "../../resources/img/clock_bg/h21.svg";
+import h20 from "../../resources/img/clock_bg/h20.svg";
+import h21 from "../../resources/img/clock_bg/h21.svg";
+import h22 from "../../resources/img/clock_bg/h22.svg";
+import h23 from "../../resources/img/clock_bg/h23.svg";
+import h0 from "../../resources/img/clock_bg/h0.svg";
+import h1 from "../../resources/img/clock_bg/h1.svg";
+import h4 from "../../resources/img/clock_bg/h4.svg";
+import h5 from "../../resources/img/clock_bg/h5.svg";
 import { TimeCtx } from "../../context/TimeCtx";
 import { chooseBg } from "./chooseBg.js";
 import { chooseBgColor } from "./chooseBgColor.js";
@@ -27,23 +27,23 @@ const DynamicBg = () => {
     const underBgColor = chooseBgColor(hours);
     return (
       <div className="dynamic-bg" style={{ backgroundColor: underBgColor }}>
-        <img className={`dynamic-bg__img ${bg === "morning6" ? "visible" : ""}`} src={morning6} widht="840" height="840" alt="rytas" />
-        <img className={`dynamic-bg__img ${bg === "morning8" ? "visible" : ""}`} src={morning8} widht="840" height="840" alt="rytas" />
-        <img className={`dynamic-bg__img ${bg === "morning10" ? "visible" : ""}`} src={morning10} widht="840" height="840" alt="rytas" />
-        <img className={`dynamic-bg__img ${bg === "morning11" ? "visible" : ""}`} src={morning11} widht="840" height="840" alt="rytas" />
-        <img className={`dynamic-bg__img ${bg === "morning12" ? "visible" : ""}`} src={morning12} widht="840" height="840" alt="rytas" />
-        <img className={`dynamic-bg__img ${bg === "day1" ? "visible" : ""}`} src={day1} widht="840" height="840" alt="diena" />
-        <img className={`dynamic-bg__img ${bg === "day2" ? "visible" : ""}`} src={day2} widht="840" height="840" alt="diena" />
-        <img className={`dynamic-bg__img ${bg === "day6" ? "visible" : ""}`} src={day6} widht="840" height="840" alt="diena" />
-        <img className={`dynamic-bg__img ${bg === "evening7" ? "visible" : ""}`} src={evening7} widht="840" height="840" alt="vakaras" />
-        <img className={`dynamic-bg__img ${bg === "evening8" ? "visible" : ""}`} src={evening8} widht="840" height="840" alt="vakaras" />
-        <img className={`dynamic-bg__img ${bg === "evening9" ? "visible" : ""}`} src={evening9} widht="840" height="840" alt="vakaras" />
-        <img className={`dynamic-bg__img ${bg === "night10" ? "visible" : ""}`} src={night10} widht="840" height="840" alt="naktis" />
-        <img className={`dynamic-bg__img ${bg === "night11" ? "visible" : ""}`} src={night11} widht="840" height="840" alt="naktis" />
-        <img className={`dynamic-bg__img ${bg === "night12" ? "visible" : ""}`} src={night12} widht="840" height="840" alt="naktis" />
-        <img className={`dynamic-bg__img ${bg === "night2" ? "visible" : ""}`} src={night2} widht="840" height="840" alt="naktis" />
-        <img className={`dynamic-bg__img ${bg === "night4" ? "visible" : ""}`} src={night4} widht="840" height="840" alt="naktis" />
-        <img className={`dynamic-bg__img ${bg === "night5" ? "visible" : ""}`} src={night5} widht="840" height="840" alt="naktis" />
+        <img className={`dynamic-bg__img ${bg === "h6" ? "visible" : ""}`} src={h6} width="612" height="612" alt="rytas" />
+        <img className={`dynamic-bg__img ${bg === "h7" ? "visible" : ""}`} src={h7} width="612" height="612" alt="rytas" />
+        <img className={`dynamic-bg__img ${bg === "h9" ? "visible" : ""}`} src={h9} width="612" height="612" alt="rytas" />
+        <img className={`dynamic-bg__img ${bg === "h11" ? "visible" : ""}`} src={h11} width="612" height="612" alt="rytas" />
+        <img className={`dynamic-bg__img ${bg === "h12" ? "visible" : ""}`} src={h12} width="612" height="612" alt="rytas" />
+        <img className={`dynamic-bg__img ${bg === "h13" ? "visible" : ""}`} src={h13} width="612" height="612" alt="diena" />
+        <img className={`dynamic-bg__img ${bg === "h15" ? "visible" : ""}`} src={h15} width="612" height="612" alt="diena" />
+        <img className={`dynamic-bg__img ${bg === "h17" ? "visible" : ""}`} src={h17} width="612" height="612" alt="diena" />
+        <img className={`dynamic-bg__img ${bg === "h19" ? "visible" : ""}`} src={h19} width="612" height="612" alt="vakaras" />
+        <img className={`dynamic-bg__img ${bg === "h20" ? "visible" : ""}`} src={h20} width="612" height="612" alt="vakaras" />
+        <img className={`dynamic-bg__img ${bg === "h21" ? "visible" : ""}`} src={h21} width="612" height="612" alt="vakaras" />
+        <img className={`dynamic-bg__img ${bg === "h22" ? "visible" : ""}`} src={h22} width="612" height="612" alt="naktis" />
+        <img className={`dynamic-bg__img ${bg === "h23" ? "visible" : ""}`} src={h23} width="612" height="612" alt="naktis" />
+        <img className={`dynamic-bg__img ${bg === "h0" ? "visible" : ""}`} src={h0} width="612" height="612" alt="naktis" />
+        <img className={`dynamic-bg__img ${bg === "h1" ? "visible" : ""}`} src={h1} width="612" height="612" alt="naktis" />
+        <img className={`dynamic-bg__img ${bg === "h4" ? "visible" : ""}`} src={h4} width="612" height="612" alt="naktis" />
+        <img className={`dynamic-bg__img ${bg === "h5" ? "visible" : ""}`} src={h5} width="612" height="612" alt="naktis" />
       </div>
     );
   }, [hours]);

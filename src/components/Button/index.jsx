@@ -21,7 +21,7 @@ const Button = ({ isLink = false, handleClick = null, icon = null, text = "", ad
     allClassNames += " tooltip";
   }
   if (icon) {
-    buttonIcon = <img className="button__icon" src={icon} alt="ikona" />;
+    buttonIcon = <img className="button__icon" width="24" height="24" src={icon} alt="ikona" />;
   }
   return (
     <div>

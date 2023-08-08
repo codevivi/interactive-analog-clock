@@ -46,7 +46,6 @@
 }
 
 .interactive-part__minute {
-  color: var(--orange-dark);
   font-weight: bold;
   position: absolute;
   top: -10px;
@@ -63,7 +62,7 @@
   height: 100%;
   /*to make the height and width responsive*/
   width: 100%;
-  background: url(../../resources/img/clock_face_5.svg) no-repeat;
+  background: url(../../resources/img/clock_face.svg) no-repeat;
   /*setting our background image*/
   background-size: 100%;
   z-index: 10;
@@ -87,7 +86,6 @@
   top: 25%;
   left: 48.85%;
   opacity: 0.8;
-
 }
 
 .clock__hand--minutes {
@@ -98,7 +96,6 @@
   top: 10%;
   left: 48.9%;
   opacity: 0.7;
-
 }
 
 .clock__hand--seconds {
@@ -116,14 +113,11 @@
   top: 50%;
   left: 0;
   right: 0;
-
 }
 
 /* .clock__guessing-game {
   position: absolute;
 } */
-
-
 
 /*//////////////////////////////////////*/
 
@@ -132,18 +126,13 @@
     width: 60vw;
     height: 60vw;
   }
-
-
 }
-
-
 
 @media all and (min-width: 1100px) {
   .clock {
     width: 55vw;
     height: 55vw;
   }
-
 
   .interactive-part__minute {
     font-size: 1em;
@@ -159,7 +148,6 @@
     width: 50vw;
     height: 50vw;
   }
-
 }
 
 @media all and (min-width: 1500px) {
@@ -171,5 +159,4 @@
   .interactive-part__minute {
     font-size: 1.4em;
   }
-
 }

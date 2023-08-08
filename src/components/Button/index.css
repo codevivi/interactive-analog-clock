@@ -8,23 +8,27 @@
   border: none;
   width: auto;
   font-size: 1rem;
+  min-width: 2em;
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 0.5em;
   transition: background-color 0.2s;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .button__icon {
+  width: 2em;
+  height: 2em;
   display: block;
   color: inherit;
 }
 
 .button__text {
-  display: block;
-  width: auto;
-  text-indent: 0.3rem;
-  display: block;
-  margin-right: 0.8rem;
+  /* display: block; */
+  /* width: auto; */
+  /* text-indent: 0.3rem; */
+  /* display: block; */
+  /* margin-right: 0.8rem; */
 }
 
 .button--normal {
@@ -92,5 +96,5 @@
   opacity: 1;
 }
 
-
-@media all and (min-width: 1500px) {}
+@media all and (min-width: 1500px) {
+}

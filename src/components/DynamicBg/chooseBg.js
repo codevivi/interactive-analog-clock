@@ -2,39 +2,39 @@ export const chooseBg = (h) => {
   let clockBg;
   let hour = Number(h);
   if (hour === 0) {
-    clockBg = "night12";
+    clockBg = "h0";
   } else if (hour >= 1 && hour < 4) {
-    clockBg = "night2";
+    clockBg = "h1";
   } else if (hour === 4) {
-    clockBg = "night4";
+    clockBg = "h4";
   } else if (hour === 5) {
-    clockBg = "night5";
+    clockBg = "h5";
   } else if (hour >= 5 && hour < 7) {
-    clockBg = "morning6";
+    clockBg = "h6";
   } else if (hour >= 7 && hour <= 8) {
-    clockBg = "morning8";
+    clockBg = "h7";
   } else if (hour > 8 && hour <= 10) {
-    clockBg = "morning10";
+    clockBg = "h9";
   } else if (hour > 10 && hour <= 11) {
-    clockBg = "morning11";
+    clockBg = "h11";
   } else if (hour > 11 && hour < 13) {
-    clockBg = "morning12";
+    clockBg = "h12";
   } else if (hour >= 13 && hour <= 14) {
-    clockBg = "day1";
+    clockBg = "h13";
   } else if (hour > 14 && hour <= 16) {
-    clockBg = "day2";
+    clockBg = "h15";
   } else if (hour > 16 && hour <= 18) {
-    clockBg = "day6";
-  } else if (hour > 18 && hour <= 19) {
-    clockBg = "evening7";
-  } else if (hour > 19 && hour <= 20) {
-    clockBg = "evening8";
-  } else if (hour > 20 && hour < 22) {
-    clockBg = "evening9";
-  } else if (hour >= 22 && hour < 23) {
-    clockBg = "night10";
-  } else if (hour === 23) {
-    clockBg = "night11";
+    clockBg = "h17";
+  } else if (hour === 19) {
+    clockBg = "h19";
+  } else if (hour === 20) {
+    clockBg = "h20";
+  } else if (hour === 21) {
+    clockBg = "h21";
+  } else if (hour === 22) {
+    clockBg = "h22";
+  } else {
+    clockBg = "h23";
   }
   return clockBg;
 };
