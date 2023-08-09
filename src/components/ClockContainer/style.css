@@ -1,15 +1,15 @@
 .clock-container {
-  width: 98%;
-  height: 100vh;
-  min-height: 100vh;
-  background-color: var(--light);
   position: relative;
-  box-shadow: 3px 3px 10px black;
-  color: var(--orange-dark);
-  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 98%;
+  height: 100vh;
+  min-height: 100vh;
+  color: var(--orange-dark);
+  background-color: var(--light);
+  box-shadow: 3px 3px 10px black;
+  margin: auto;
 }
 
 .girl {
@@ -18,9 +18,6 @@
   right: 1%;
   width: 14vw;
   height: auto;
-}
-
-@media all and (min-width: 500px) {
 }
 
 @media all and (min-width: 800px) {

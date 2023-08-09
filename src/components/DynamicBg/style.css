@@ -1,38 +1,27 @@
 .dynamic-bg {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
   top: 0;
-  background-color: var(--light);
   left: 0;
   bottom: 0;
   right: 0;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light);
+  border-radius: 50%;
 }
 
 .dynamic-bg__img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  transition: opacity 1s ease-out;
-  -webkit-transition: opacity 1s ease-out;
-  -moz-transition: opacity 1s ease-out;
-  -ms-transition: opacity 1s ease-out;
-  -o-transition: opacity 1s ease-out;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   opacity: 0;
+  transition: opacity 1s ease-out;
 }
 
 .visible {
