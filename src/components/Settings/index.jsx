@@ -5,39 +5,41 @@ import closeIcon from "../../resources/icons/close.svg";
 import { useContext, useState } from "react";
 import { SettingsCtx } from "../../context/SettingsCtx";
 
-const Settings = ({ children }) => {
+const Settings = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const toggleSettings = () => {
+    setIsSettingsOpen((isOpen) => !isOpen);
+  };
 
   const { isInteractive, makeInteractive, makeNotInteractive, isDigitalVisible, showDigital, hideDigital, isHourFormat12, makeDigitalFormat12, makeDigitalFormat24, isMinutesAroundFace, showMinutesAroundFace, hideMinutesAroundFace, chooseGapForMinutesAroundFace } = useContext(SettingsCtx);
   return (
-    <div className="surround">
-      {!isSettingsOpen && <Button addPosClass="open-settings-button-position" styling="info" icon={settingsIcon} handleClick={() => setIsSettingsOpen(true)} />}
-      {isSettingsOpen && (
-        <div className="clock-settings">
-          <div className="clock-settings__inner">
-            <Button addPosClass="close-settings-button-position" styling="close" icon={closeIcon} handleClick={() => setIsSettingsOpen(false)} />
+    <div className="clock-settings">
+      <Button addPosClass="open-settings-button-position" large styling={isSettingsOpen ? "danger" : "normal"} icon={isSettingsOpen ? closeIcon : settingsIcon} handleClick={toggleSettings} />
+      <div className="clock-settings__inner">
+        {isSettingsOpen && (
+          <>
             <h1 className="clock-settings__title">Nustatymai</h1>
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Elektronis laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {isDigitalVisible && <Button large text="Paslėpti" handleClick={hideDigital}></Button>}
-                {!isDigitalVisible && <Button large text="Rodyti" handleClick={showDigital}></Button>}
-                {isDigitalVisible && !isHourFormat12 && <Button large text="Perjunkti į 12 valandų formatą" handleClick={makeDigitalFormat12}></Button>}
-                {isDigitalVisible && isHourFormat12 && <Button large text="Perjunkti į 24 valandų formatą" handleClick={makeDigitalFormat24}></Button>}
+                {isDigitalVisible && <Button text="Paslėpti" handleClick={hideDigital}></Button>}
+                {!isDigitalVisible && <Button text="Rodyti" handleClick={showDigital}></Button>}
+                {isDigitalVisible && !isHourFormat12 && <Button text="Perjunkti į 12 valandų formatą" handleClick={makeDigitalFormat12}></Button>}
+                {isDigitalVisible && isHourFormat12 && <Button text="Perjunkti į 24 valandų formatą" handleClick={makeDigitalFormat24}></Button>}
               </div>
             </div>
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Mokomasis Laikrodukas</h2>
               <div className="clock-settings__buttons-container">
-                {!isInteractive && <Button large text="Įjunkti" tooltip tooltipText="Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą." handleClick={makeInteractive}></Button>}
-                {isInteractive && <Button large text="Išjunkti" handleClick={makeNotInteractive}></Button>}
+                {!isInteractive && <Button text="Įjunkti" tooltip tooltipText="Galėsite sukti laiką ant laikroduko laikydami įspaudę kairį pelės klavišą." handleClick={makeInteractive}></Button>}
+                {isInteractive && <Button text="Išjunkti" handleClick={makeNotInteractive}></Button>}
               </div>
             </div>
             <div className="clock-settings__section">
               <h2 className="clock-settings__title-h2">Minučių padalų numeravimas</h2>
               <div className="clock-settings__buttons-container">
-                {!isMinutesAroundFace && <Button large text="Rodyti minutes" handleClick={showMinutesAroundFace}></Button>}
-                {isMinutesAroundFace && <Button large text="Paslėpti minutes" handleClick={hideMinutesAroundFace}></Button>}
+                {!isMinutesAroundFace && <Button text="Rodyti minutes" handleClick={showMinutesAroundFace}></Button>}
+                {isMinutesAroundFace && <Button text="Paslėpti minutes" handleClick={hideMinutesAroundFace}></Button>}
 
                 {isMinutesAroundFace && <p className="clock-settings__text">Pasirinkite tarpus tarp rodomų minučių:</p>}
                 <div className="clock-settings__gap-buttons">
@@ -48,10 +50,9 @@ const Settings = ({ children }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      )}
-      {children}
+          </>
+        )}
+      </div>
     </div>
   );
 };

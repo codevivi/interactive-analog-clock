@@ -4,12 +4,11 @@ const Button = ({ isLink = false, handleClick = null, icon = null, text = "", ad
   let buttonText = null;
   let buttonIcon = null;
   let allClassNames = addPosClass;
-  if (styling === "normal") {
-    allClassNames += " button--normal";
-  } else if (styling === "info") {
+
+  if (styling === "info") {
     allClassNames += " button--info";
-  } else if (styling === "close") {
-    allClassNames += " button--close";
+  } else if (styling === "danger") {
+    allClassNames += " button--danger";
   }
   if (large) {
     allClassNames += " button--large";

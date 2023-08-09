@@ -12,15 +12,10 @@ function App() {
       {!isMobile && <ParticlesBg type="circle" bg={true} />}
       <ClockContainer>
         <SettingsProvider>
-          {/* <GlobalProvider> */}
-          {/* <ClockProvider> */}
-          <Settings>
-            <ClockProvider>
-              <Clock />
-            </ClockProvider>
-          </Settings>
-          {/* </ClockProvider> */}
-          {/* </GlobalProvider> */}
+          <Settings />
+          <ClockProvider>
+            <Clock />
+          </ClockProvider>
         </SettingsProvider>
       </ClockContainer>
     </div>

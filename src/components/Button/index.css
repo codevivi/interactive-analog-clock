@@ -1,73 +1,58 @@
 .button {
   display: flex;
   align-items: center;
-  font-family: inherit;
   justify-content: center;
-  background-color: transparent;
-  box-shadow: -1px 1px 4px black;
-  border: none;
   width: auto;
-  font-size: 1rem;
   min-width: 2em;
-  text-decoration: none;
   padding: 0.5em;
-  transition: background-color 0.2s;
+  font-family: inherit;
+  background-color: var(--orange);
+  color: var(--light);
+  box-shadow: 1px 1px 1px var(--orange-dark);
+  border: none;
   border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s;
   cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  background-color: var(--orange-darken);
 }
 
 .button__icon {
-  width: 2em;
-  height: 2em;
+  width: 1em;
+  height: 1em;
   display: block;
   color: inherit;
 }
 
-.button__text {
-  /* display: block; */
-  /* width: auto; */
-  /* text-indent: 0.3rem; */
-  /* display: block; */
-  /* margin-right: 0.8rem; */
-}
-
-.button--normal {
-  background-color: transparent;
-  color: var(--orange-dark);
-}
-
 .button--info {
   background-color: var(--blue);
-  color: var(--light);
 }
 
-.button--close {
-  background-color: var(--green);
-  color: var(--light);
+.button--danger {
+  background-color: var(--red);
 }
 
 .button--large {
-  font-size: 1.2em;
+  font-size: 1.8em;
 }
 
 .button--large .button__icon {
-  min-width: 2rem;
   height: auto;
 }
 
 .button--info:hover,
 .button--info:focus {
-  background-color: var(--orange);
+  background-color: var(--blue-darken);
 }
 
-.button--close:hover,
-.button--close:focus {
-  background-color: var(--red);
-}
-
-.button--normal:hover,
-.button--normal:focus {
-  background-color: var(--yellow);
+.button--danger:hover,
+.button--danger:focus {
+  background-color: var(--red-darken);
 }
 
 .tooltip {
@@ -75,26 +60,20 @@
 }
 
 .tooltip .tooltip-text {
-  visibility: hidden;
-  width: 100%;
-  background-color: var(--orange);
-  color: var(--light);
-  font-size: 0.9em;
-  text-align: center;
-  border-radius: 6px 6px 6px 0;
-  padding: 0.4em;
   position: absolute;
-  z-index: 1;
-  bottom: 101%;
+  bottom: 110%;
   left: 0;
-  opacity: 0;
-  transition: opacity 0.5s;
+  display: none;
+  width: 100%;
+  padding: 0.4em;
+  color: var(--light);
+  background-color: var(--blue);
+  border-radius: 9px 9px 9px 0;
+  font-size: 0.8em;
+  text-align: center;
+  z-index: 1;
 }
 
 .tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media all and (min-width: 1500px) {
+  display: block;
 }
