@@ -12,8 +12,9 @@ const Part = memo(({ minute }) => {
           onMouseOver={(e) => e.stopPropagation()}
           className="interactive-part__minute"
           style={{
-            transform: `rotate(${minute * -6}deg)`,
+            transform: `rotate(${-deg}deg)`,
             color: `${minute % 5 ? "grey" : "black"}`,
+            fontSize: `${minute % 5 ? "0.6em" : "0.8em"}`,
           }}>
           {minute}
         </small>

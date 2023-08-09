@@ -1,70 +1,69 @@
 .clock {
-  background-color: var(--light);
-  border-radius: 50%;
   position: fixed;
-  margin: auto;
-  height: 80vw;
-  width: 80vw;
-  /* width: 100%;
-  height: 100%; */
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   display: flex;
-  box-shadow: 3px 3px 8px var(--green-darkest);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left top;
-  transition: background-image 1s;
-  z-index: 10;
+  height: 80vw;
+  width: 80vw;
   max-width: 90vh;
   max-height: 90vh;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
 
 .interactive {
   position: absolute;
-  border-radius: 50%;
   top: 0;
-  left: 0;
-  margin: auto;
-  height: 100%;
+  left: -5px;
   width: 100%;
+  height: 100%;
+  margin: auto;
+  border-radius: 50%;
 }
 
 .interactive-part {
-  width: 10px;
-  height: 53%;
-  top: -3%;
-  left: 50%;
   position: absolute;
+  top: 0%;
+  left: 50%;
+  width: 10px;
+  height: 50%;
   border-radius: 10px;
   transform-origin: bottom;
   text-decoration: none;
   list-style-type: none;
   z-index: 8;
 }
+.interactive.grab {
+  cursor: pointer;
+}
 
 .interactive-part__minute {
-  font-weight: bold;
-  position: absolute;
-  top: -10px;
-  left: -6px;
-  font-size: 0.8em;
+  position: relative;
+  top: -1.8rem;
+  left: -100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  text-align: center;
   z-index: 9;
 }
 
 .clock__face {
-  border-radius: 50%;
   top: 0;
   left: 0;
-  margin: auto;
-  height: 100%;
-  /*to make the height and width responsive*/
   width: 100%;
+  height: 100%;
+  margin: auto;
   background: url(../../resources/img/clock_face.svg) no-repeat;
-  /*setting our background image*/
   background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
   z-index: 10;
 }
 
@@ -74,27 +73,21 @@
   border-radius: 10px;
   box-shadow: 1px 1px 5px white;
   transform-origin: bottom;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
 }
 
 .clock__hand--hours {
+  top: 25%;
+  left: 48.9%;
   width: 2.8%;
   height: 25%;
-  top: 25%;
-  left: 48.85%;
   opacity: 0.8;
 }
 
 .clock__hand--minutes {
-  width: 1.6%;
-  height: 30%;
-  height: 40%;
-  top: 19%;
   top: 10%;
   left: 48.9%;
+  width: 1.6%;
+  height: 40%;
   opacity: 0.7;
 }
 
@@ -102,10 +95,9 @@
   width: 0.8%;
   height: 40%;
   top: 10.4%;
-  left: 49.25%;
   left: 49.6%;
-  opacity: 0.8;
   background-color: red;
+  opacity: 0.8;
 }
 
 .digital {
@@ -115,16 +107,16 @@
   right: 0;
 }
 
-/* .clock__guessing-game {
-  position: absolute;
-} */
-
 /*//////////////////////////////////////*/
 
 @media all and (min-width: 800px) {
   .clock {
     width: 60vw;
     height: 60vw;
+  }
+
+  .interactive-part {
+    font-size: 1.4rem;
   }
 }
 
@@ -134,8 +126,8 @@
     height: 55vw;
   }
 
-  .interactive-part__minute {
-    font-size: 1em;
+  .interactive-part {
+    font-size: 1.6rem;
   }
 
   .clock-settings {
@@ -155,8 +147,7 @@
     width: 44vw;
     height: 44vw;
   }
-
-  .interactive-part__minute {
-    font-size: 1.4em;
+  .interactive-part {
+    font-size: 1.8rem;
   }
 }

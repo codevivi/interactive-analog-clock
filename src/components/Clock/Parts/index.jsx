@@ -24,7 +24,7 @@ function Parts({ isDragEnabled }) {
   };
 
   return (
-    <ul draggable="false" className="interactive" onTouchMove={isDragEnabled && isInteractive ? (e) => handleTouchMove(e) : null} onMouseOver={isDragEnabled && isInteractive ? (e) => handleMouseOver(e) : null}>
+    <ul draggable="false" className={`${isInteractive ? "interactive grab" : "interactive"}`} onTouchMove={isDragEnabled && isInteractive ? (e) => handleTouchMove(e) : null} onMouseOver={isDragEnabled && isInteractive ? (e) => handleMouseOver(e) : null}>
       {[...Array(60).keys()].map((_, m) => (
         <Part key={m} minute={m} />
       ))}
