@@ -2,6 +2,7 @@
   "name": "interactive-analog-clock",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://codevivi.github.io/interactive-analog-clock",
   "dependencies": {
     "gh-pages": "^5.0.0",
     "particles-bg": "^2.5.5",
