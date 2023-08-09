@@ -22,7 +22,7 @@ React learning project.
 
 Settings currently in **_Lithuanian_** language only.
 
-[Link to ⚒️ to-dos and 🐛bugs tracking file](BUGS-AND-TODOS.md)
+[Issues can be submitted there 🐛](https://github.com/codevivi/interactive-analog-clock/issues)
 
 ## ⚙️ Usage
 
@@ -55,7 +55,7 @@ then you can view application with static server;
 make sure you are in directory where build folder is and run:
 
 ```bash
-serve -s build
+npm run preview
 ```
 
 ## Further default README from create-react-app:
