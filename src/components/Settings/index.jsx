@@ -14,7 +14,7 @@ const Settings = () => {
   const { isInteractive, makeInteractive, makeNotInteractive, isDigitalVisible, showDigital, hideDigital, isHourFormat12, makeDigitalFormat12, makeDigitalFormat24, isMinutesAroundFace, showMinutesAroundFace, hideMinutesAroundFace, chooseGapForMinutesAroundFace } = useContext(SettingsCtx);
   return (
     <div className="clock-settings">
-      <Button addPosClass="open-settings-button-position" large styling={isSettingsOpen ? "danger" : "normal"} icon={isSettingsOpen ? closeIcon : settingsIcon} handleClick={toggleSettings} />
+      <Button addPosClass="open-settings-button-position" large styling={isSettingsOpen ? "danger" : "normal"} iconText={isSettingsOpen ? "uždaryti" : "nustatymai"} icon={isSettingsOpen ? closeIcon : settingsIcon} handleClick={toggleSettings} />
       <div className="clock-settings__inner">
         {isSettingsOpen && (
           <>

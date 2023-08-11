@@ -10,6 +10,9 @@
   max-width: 90vh;
   max-height: 90vh;
   margin: auto;
+  background-image: url("./../../resources/img/clock_bg/mini-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 50%;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.7);
   z-index: 10;

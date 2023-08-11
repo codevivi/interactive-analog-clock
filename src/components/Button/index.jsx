@@ -1,6 +1,6 @@
 //import { Link } from "react-router-dom";
 import "./index.css";
-const Button = ({ isLink = false, handleClick = null, icon = null, text = "", addPosClass = "", styling = "normal", large = false, tooltip = false, tooltipText = "" }) => {
+const Button = ({ isLink = false, handleClick = null, icon = null, text = "", addPosClass = "", styling = "normal", iconText = "ikona", large = false, tooltip = false, tooltipText = "" }) => {
   let buttonText = null;
   let buttonIcon = null;
   let allClassNames = addPosClass;
@@ -20,7 +20,7 @@ const Button = ({ isLink = false, handleClick = null, icon = null, text = "", ad
     allClassNames += " tooltip";
   }
   if (icon) {
-    buttonIcon = <img className="button__icon" width="24" height="24" src={icon} alt="ikona" />;
+    buttonIcon = <img className="button__icon" width="24" height="24" src={icon} alt={iconText} />;
   }
   return (
     <div>
