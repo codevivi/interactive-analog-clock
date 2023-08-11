@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/interactive-analog-clock/static/css/main.ecc482ff.css",
-    "main.js": "/interactive-analog-clock/static/js/main.da566dd5.js",
+    "main.css": "/interactive-analog-clock/static/css/main.5d26f80c.css",
+    "main.js": "/interactive-analog-clock/static/js/main.6dfc1da4.js",
     "static/media/clock_face.svg": "/interactive-analog-clock/static/media/clock_face.03d5bf6787e9a5e57759.svg",
+    "static/media/mini-bg.png": "/interactive-analog-clock/static/media/mini-bg.f04f8195a7e92c570162.png",
     "static/media/h0.svg": "/interactive-analog-clock/static/media/h0.fda25dd8380d3bab69e4651812fab850.svg",
     "static/media/h21.svg": "/interactive-analog-clock/static/media/h21.04a51e1452ae6bb933064345997ffd4a.svg",
     "static/media/h20.svg": "/interactive-analog-clock/static/media/h20.b8757c23aca6ee79c2c6252412e6caf4.svg",
@@ -23,11 +24,11 @@
     "static/media/settings_gear.svg": "/interactive-analog-clock/static/media/settings_gear.082149bc07ed48e92d64dc02cdaf7b0d.svg",
     "static/media/close.svg": "/interactive-analog-clock/static/media/close.5d315a6213a4581afd29a58c2f119616.svg",
     "index.html": "/interactive-analog-clock/index.html",
-    "main.ecc482ff.css.map": "/interactive-analog-clock/static/css/main.ecc482ff.css.map",
-    "main.da566dd5.js.map": "/interactive-analog-clock/static/js/main.da566dd5.js.map"
+    "main.5d26f80c.css.map": "/interactive-analog-clock/static/css/main.5d26f80c.css.map",
+    "main.6dfc1da4.js.map": "/interactive-analog-clock/static/js/main.6dfc1da4.js.map"
   },
   "entrypoints": [
-    "static/css/main.ecc482ff.css",
-    "static/js/main.da566dd5.js"
+    "static/css/main.5d26f80c.css",
+    "static/js/main.6dfc1da4.js"
   ]
 }
